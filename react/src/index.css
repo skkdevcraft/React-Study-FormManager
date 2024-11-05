@@ -1,0 +1,266 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  user-select: none; /* Prevent text selection */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.custom-dialog {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Ensure the dialog is positioned absolutely */
+  top: 50%; /* Position it in the middle of the viewport */
+  left: 50%; /* Position it in the middle of the viewport */
+  transform: translate(-50%, -50%); /* Center it by adjusting its own width and height */
+  margin: 0; /* Ensure no margin */
+}
+
+.custom-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.custom-dialog h2 {
+  margin-top: 0;
+}
+
+.custom-dialog input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-dialog .button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.custom-dialog button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-dialog button[value="cancel"] {
+  background-color: #f0f0f0;
+}
+
+.custom-dialog button[value="done"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.output {
+  color: #888;
+}
+
+.class-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+
+  width: 150px; /* Set a reasonable width */
+  height: 350px; /* Set a reasonable height */
+  background-size: cover; /* Ensure the background image covers the entire div */
+  background-position: center; /* Center the background image */
+  border-radius: 8px; /* Optional: add rounded corners */
+  margin: 10px; /* Optional: add some spacing between images */
+  cursor: pointer;
+}
+
+.image-container {
+  display: flex; /* Use flexbox to arrange child elements in a row */
+  justify-content: center; /* Center the items horizontally */
+  gap: 10px; /* Optional: add space between the images */
+}
+
+.class-image:hover {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+.class-image.selected {
+  /* border: 2px solid #4CAF50; Highlight selected image with a green border */
+  box-shadow: 0 0 20px rgba(240, 111, 6, 1.0); /* Optional: add a shadow effect */
+}
+
+.class-label {
+  font-size: 2.2em;
+  font-weight: 500;
+  line-height: 1.1;
+
+  display: block; /* Make the label a block element */
+  text-align: center; /* Center the text under the image */
+  margin-bottom: 5px; /* Add some space between the image and the text */
+  color: #fff; /* Set text color to white for better visibility */
+  text-shadow: 5px 5px 8px rgba(0, 0, 0, 1.7); /* Add dark shadow */
+}
+
+/* Add styles for skill-selection, skill, increase, decrease, and value classes */
+.skill-selection {
+  display: flex;
+  flex-direction: column; /* Align skills vertically */
+  gap: 10px; /* Space between each skill */
+}
+
+.skill {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space between skill name and buttons */
+}
+
+.skill span:first-child {
+  flex-grow: 1; /* Allow the first span to take the remaining space */
+  
+  font-size: 1.5em; /* Increase font size for + and - signs */
+  font-weight: 500;
+}
+
+.increase, .decrease {
+  background-color: transparent; /* Remove background */
+  color: #000000; /* Green text color */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Make buttons circular */
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: 2.5em; /* Increase font size for + and - signs */
+  cursor: pointer; /* Pointer cursor on hover */
+  line-height: 0.8;
+
+  position: relative;
+  bottom: 0.1em;
+}
+
+.increase:hover, .decrease:hover {
+  background-color: rgba(100, 100, 100, 0.2); /* Light background on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
+}
+
+.value {
+  min-width: 40px;
+  text-align: right;
+  font-size: 1.5em; /* Slightly larger font for value */
+  margin: 0 10px; /* Space around the value */
+}
+
+/* Add this class for the hero-enter animation */
+.hero-enter {
+  animation: heroEnter 1s forwards; /* Apply the animation */
+  font-size: 4em; /* Start with large text */
+  opacity: 0;
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center it */
+  z-index: 10;
+}
+
+/* Define the keyframes for the animation */
+@keyframes heroEnter {
+  0% {
+    font-size: 4em; /* Start size */
+    opacity: 0;
+  }
+  100% {
+    font-size: 2em; /* End size */
+    opacity: 1; /* Fully visible */
+    top: 20%; /* Final vertical position */
+    transform: translate(0%, 0%); /* Adjust final position */
+  }
+}
+
+.hero-enter-1 {
+  animation-delay: 0s; /* No delay */
+}
+
+.hero-enter-2 {
+  animation-delay: 2s; 
+}
+
+.hero-enter-3 {
+  animation-delay: 4s; 
+}
