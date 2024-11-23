@@ -33,7 +33,7 @@ export function FormManager({ children }: FormManagerProps) {
 
   const context = useMemo<FormManagerContextType>(() => ({
     openForm: (createChild) => {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve, _reject) => {
 
         const key = newKey();
 

@@ -9,6 +9,7 @@ This study explores a possible implementation of the functionality, and the code
 This repo provides a comparison between "vanilla" JavaScript and React. The ```vanilla``` folder shows how the functionality would look if no framework is used. The logic illustrated with this code can be found in (```/vanilla/src/main.ts```):
 
 ```js
+    // vanilla/src/main.ts
     ...
     const name = await openForm("What is thy hero name?");
     if (!name) return;
@@ -23,24 +24,15 @@ This repo provides a comparison between "vanilla" JavaScript and React. The ```v
 The ```react``` folder contains the equivalent React implementation with an additional feature - its ```openForm``` method takes the form component to be shown, whereas the vanilla implementation always opens the same form. (```/react/src/App.tsx```)
 
 ```tsx
+    // react/src/App.tsx
     ...
-    // const name = await openForm("What is thy hero name?");
-    const name = await openForm<{ result: string} | undefined>((key, resolve) => (
-      <SimpleForm
-        title='What is thy hero name?'
-        closeCallback={(data) => resolve(data)}
-        />
-    ));
-    if (!name) return;
+    const { openSimpleForm } = useSimpleFormManager();
+    ...
+    const name = await openSimpleForm('What is thy hero name?');
+    if (!name) return; // Exit if no name is provided
 
-    // const occupation = await openForm(`What is ${name.result} occupation?`);
-    const occupation = await openForm<{ result: string } | undefined>((key, resolve) => (
-      <SimpleForm
-        title={`What is ${name.result} occupation?`}
-        closeCallback={(data) => resolve(data)}
-        />
-    ));
-    if (!occupation) return;
+    const occupation = await openSimpleForm(`What is ${name.result} occupation?`);
+    if (!occupation) return; // Exit if no occupation is provided
 
     setOutput(`${name.result}! A mighty ${occupation.result}!`);
     ...
